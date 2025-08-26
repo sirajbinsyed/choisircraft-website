@@ -28,7 +28,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
   const socialLinks = [
     { Icon: Mail, href: "mailto:choisircraft@gmail.com", name: "Email" },
-    { Icon: Phone, href: "https://api.whatsapp.com/send/?phone=919744849679", name: "WhatsApp" },
+    { Icon: Phone, href: "https://api.whatsapp.com/send/?phone=919495257093", name: "WhatsApp" },
     { Icon: Linkedin, href: "#", name: "LinkedIn" }, // Add your LinkedIn URL
     { Icon: Instagram, href: "#", name: "Instagram" }, // Add your Instagram URL
   ]

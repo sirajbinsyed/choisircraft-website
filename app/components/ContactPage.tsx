@@ -35,7 +35,7 @@ export default function ContactPage() {
       title: "WhatsApp",
       info: "Chat with us",
       description: "Quick response guaranteed",
-      link: "https://api.whatsapp.com/send/?phone=919744849679&text=Hello%2C+I%27m+interested+in+your+services&type=phone_number&app_absent=0",
+      link: "https://api.whatsapp.com/send/?phone=919495257093&text=Hello%2C+I%27m+interested+in+your+services&type=phone_number&app_absent=0",
     },
     {
       icon: <Clock className="w-6 h-6" />,
