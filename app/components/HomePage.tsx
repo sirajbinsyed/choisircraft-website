@@ -53,28 +53,28 @@ export default function HomePage() {
       title: "ERP Systems",
       description: "Comprehensive enterprise resource planning solutions to streamline your business operations, from inventory to financial reporting.",
       features: ["Inventory Management", "Financial Reporting", "HR Management", "Production Planning"],
-      image: "/erp.png", // Ensure you have public/erp.png
+      image: "/erp.jpg", // Ensure you have public/erp.png
     },
     {
       icon: <Code className="w-8 h-8 text-blue-600" />,
       title: "Web & App Development",
       description: "Custom web and mobile applications built with modern technologies and best practices for a seamless user experience.",
       features: ["Responsive Design", "Mobile Apps (iOS & Android)", "Progressive Web Apps", "API Development"],
-      image: "/development.png", // Ensure you have public/development.png
+      image: "/development.jpg", // Ensure you have public/development.png
     },
     {
       icon: <ShoppingCart className="w-8 h-8 text-blue-600" />,
       title: "E-Commerce Solutions",
       description: "Complete e-commerce platforms with secure payment integration, inventory management, and powerful analytics.",
       features: ["Online Storefronts", "Secure Payment Gateway", "Order Management", "Sales Analytics"],
-      image: "/ecommerce.png", // Ensure you have public/ecommerce.png
+      image: "/ecommerce.jpg", // Ensure you have public/ecommerce.png
     },
     {
       icon: <Star className="w-8 h-8 text-blue-600" />,
       title: "Digital Excellence",
       description: "Comprehensive digital transformation services including strategy, cloud solutions, and automation to elevate your business.",
       features: ["Digital Strategy", "Cloud Solutions", "Business Analytics", "Process Automation"],
-      image: "/analysis.png", // Ensure you have public/analysis.png
+      image: "/analysis.jpg", // Ensure you have public/analysis.png
     },
   ]
 
@@ -88,6 +88,8 @@ export default function HomePage() {
       websiteUrl: "https://adstudios.in/",
       githubUrl: null,
       client: "Adstudio, Kochi",
+      techStack : ["React"],
+      category: "E-commerce"
     },
     {
       id: 2,
@@ -97,6 +99,8 @@ export default function HomePage() {
       websiteUrl: "https://bakecityhyper.com/",
       githubUrl: null,
       client: "BakeCity Hyper, Calicut",
+      techStack : ["HTML", "CSS"],
+      category: "Static"
     },
     {
       id: 3,
@@ -106,25 +110,11 @@ export default function HomePage() {
       websiteUrl: "https://sirajbinsyed.github.io/mahesh/",
       githubUrl: "https://github.com/sirajbinsyed/mahesh",
       client: "Mahesh GANGADHARAN, Portrait Artist",
+      techStack : ["React"],
+      category: "Static"
     }
   ]
 
-
-  // Client Data (Keeping as is if you want to include it)
-  const clients = [
-    { name: "Tech Solutions Inc.", logo: "/erp.png", url: "#" },
-    { name: "Global Pharma Ltd.", logo: "/development.png", url: "#" },
-    { name: "Innovate Ventures", logo: "/ecommerce.png", url: "#" },
-    { name: "Creative Minds Agency", logo: "/analysis.png", url: "#" },
-    { name: "Alpha Logistics", logo: "/erp.png", url: "#" },
-    { name: "Beta Finance Group", logo: "/development.png", url: "#" },
-    { name: "Quantum Leap Inc.", logo: "/ecommerce.png", url: "#" },
-    { name: "Stellar Innovations", logo: "/analysis.png", url: "#" },
-  ];
-
-  // External Link for Digital Restaurant Menu Plans
-  const digitalMenuPlansLink = "https://sirajbinsyed.github.io/restaurant_menu_system_plans/";
- const digitalMenuBasePlanLink = "https://choisircraft.github.io/digital-Menu-Base-Plan/" // Added for the Basic Plan
 
   // Effect for typing animation on the hero section
   useEffect(() => {
@@ -175,133 +165,160 @@ export default function HomePage() {
   return (
     <div className="pt-16 bg-white">
       {/* 1. Hero Slider Section */}
-      <section className="relative h-screen overflow-hidden">
-        {/* Background particle effects */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <div key={i} className="absolute w-2 h-2 bg-white/20 rounded-full animate-float" style={{left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 5}s`, animationDuration: `${3 + Math.random() * 4}s`}}/>
-          ))}
-        </div>
-        {slides.map((slide, index) => (
-          <div key={index} className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}>
-            <div className="absolute inset-0"><img src={slide.image} alt="Slide Background" className="w-full h-full object-cover"/></div>
-            <div className="flex items-center justify-center h-full text-white text-center px-4 relative z-10 bg-black/40">
-              <div className="max-w-4xl mx-auto">
-                <div className="mb-4"><span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium backdrop-blur-sm animate-fade-in-up">{typedText}{isTyping && <span className="animate-pulse">|</span>}</span></div>
-                <h1 className="text-4xl md:text-7xl font-bold mb-6 animate-fade-in-up animation-delay-300">{slide.title}</h1>
-                <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-600 leading-relaxed">{slide.subtitle}</p>
-                <button className="group bg-white/20 hover:bg-white hover:text-gray-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 animate-fade-in-up animation-delay-900 backdrop-blur-sm border border-white/30">
-                  {slide.cta}
-                  <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-        {/* Navigation Buttons */}
-        <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm group z-20">
-          <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" />
-        </button>
-        <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm group z-20">
-          <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-        </button>
-        {/* Dots Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-          {slides.map((_, index) => (
-            <button key={index} onClick={() => setCurrentSlide(index)} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/75"}`}/>
-          ))}
-        </div>
-      </section>
+     <section className="relative h-screen overflow-hidden">
+  {/* Enhanced background particle effects */}
+  <div className="absolute inset-0 overflow-hidden">
+    {[...Array(30)].map((_, i) => (
+      <div 
+        key={i} 
+        className="absolute rounded-full animate-float backdrop-blur-sm"
+        style={{
+          width: `${2 + Math.random() * 6}px`,
+          height: `${2 + Math.random() * 6}px`,
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          background: `rgba(255, 255, 255, ${0.15 + Math.random() * 0.2})`,
+          animationDelay: `${Math.random() * 5}s`,
+          animationDuration: `${3 + Math.random() * 4}s`,
+        }}
+      />
+    ))}
+  </div>
 
-      {/* 4. Basic Plan Section */}
-      <section className="py-24 bg-white relative">
-        <div className="absolute inset-0 bg-vector-green opacity-10"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-base font-semibold mb-4 animate_animated animate_fadeInDown">
-              Futuristic Contactless Dining
+  {/* Gradient overlay for better glass effect */}
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 z-0"></div>
+
+  {slides.map((slide, index) => (
+    <div 
+      key={index} 
+      className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+        index === currentSlide 
+          ? "opacity-100 scale-100" 
+          : "opacity-0 scale-105"
+      }`}
+    >
+      <div className="absolute inset-0">
+        <img src={slide.image} alt="Slide Background" className="w-full h-full object-cover"/>
+        {/* Enhanced overlay with blur */}
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]"></div>
+      </div>
+      
+      {/* Glass content container */}
+      <div className="flex items-center justify-center h-full text-white text-center px-4 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          {/* Enhanced glass badge */}
+          <div className="mb-6">
+            <span className="inline-block px-6 py-3 bg-white/15 backdrop-blur-md rounded-2xl text-base font-medium border border-white/20 shadow-lg animate-fade-in-up">
+              {typedText}
+              {isTyping && <span className="animate-pulse">|</span>}
             </span>
-            <h2 className="text-5xl font-extrabold text-gray-900 mb-4 animate_animated animate_zoomIn">Basic Plan</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate_animated animatefadeInUp animate_delay-1s">
-              Transform your restaurant with our digital menu solutions
-            </p>
           </div>
-
-          <div className="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-10 shadow-xl animate_animated animate_fadeInUp">
-            <div className="text-center mb-8">
-              <span className="inline-block px-4 py-2 bg-red-500 text-white rounded-full text-lg font-semibold animate_animated animatepulse animate_infinite">
-                60% OFF
-              </span>
-              <h3 className="text-3xl font-bold text-gray-900 mt-4">₹2000 <span className="line-through text-gray-500">₹5000</span> / First Year</h3>
-              <p className="text-gray-600 mt-2">Yearly Renewal: ₹1000</p>
-            </div>
-
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start animate_animated animatefadeInUp animate_delay-1s">
-                <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-                <span className="text-gray-700 text-lg">Live Menu Management: Instantly upload and update menu items, prices, and descriptions through a simple admin panel.</span>
-              </li>
-              <li className="flex items-start animate_animated animatefadeInUp animate_delay-2s">
-                <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-                <span className="text-gray-700 text-lg">Real-Time Item Availability: Easily mark items as 'Available' or 'Unavailable' with a single click to keep customers informed.</span>
-              </li>
-              <li className="flex items-start animate_animated animatefadeInUp animate_delay-3s">
-                <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-                <span className="text-gray-700 text-lg">Dynamic QR Code: One permanent QR code for your restaurant. All menu changes update automatically, no reprinting needed.</span>
-              </li>
-            </ul>
-
-            <button
-              onClick={() => handleOpenModal(digitalMenuBasePlanLink)}
-              className="w-full px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-md animate_animated animatepulse animate_infinite"
-            >
-              Choose Plan
-              <ArrowRight className="inline-block ml-3 w-5 h-5" />
-            </button>
-          </div>
+          
+          {/* Enhanced title with gradient text */}
+          <h1 className="text-5xl md:text-8xl font-bold mb-8 animate-fade-in-up animation-delay-300 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+            {slide.title}
+          </h1>
+          
+          {/* Enhanced subtitle */}
+          <p className="text-xl md:text-2xl mb-10 max-w-2xl mx-auto animate-fade-in-up animation-delay-600 leading-relaxed font-light">
+            {slide.subtitle}
+          </p>
+          
+          {/* Enhanced glass button */}
+          <button className="group bg-white/15 hover:bg-white/25 backdrop-blur-md text-white px-10 py-4 rounded-2xl font-semibold transition-all duration-500 transform hover:scale-105 animate-fade-in-up animation-delay-900 border border-white/30 shadow-xl hover:shadow-2xl">
+            {slide.cta}
+            <ArrowRight className="inline-block ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+          </button>
         </div>
-      </section>
+      </div>
+    </div>
+  ))}
 
+  {/* Enhanced Navigation Buttons */}
+  <button 
+    onClick={prevSlide} 
+    className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white p-4 rounded-2xl transition-all duration-300 group z-20 border border-white/20 shadow-lg hover:shadow-xl"
+  >
+    <ChevronLeft className="w-7 h-7 group-hover:-translate-x-1 transition-transform duration-300" />
+  </button>
+  
+  <button 
+    onClick={nextSlide} 
+    className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white p-4 rounded-2xl transition-all duration-300 group z-20 border border-white/20 shadow-lg hover:shadow-xl"
+  >
+    <ChevronRight className="w-7 h-7 group-hover:translate-x-1 transition-transform duration-300" />
+  </button>
+
+  {/* Enhanced Dots Indicator */}
+  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20">
+    {slides.map((_, index) => (
+      <button 
+        key={index} 
+        onClick={() => setCurrentSlide(index)}
+        className={`rounded-full transition-all duration-500 backdrop-blur-sm border border-white/30 ${
+          index === currentSlide 
+            ? "bg-white/40 scale-125 w-4 h-4" 
+            : "bg-white/20 hover:bg-white/30 w-3 h-3"
+        }`}
+      />
+    ))}
+  </div>
+
+  {/* Progress Bar */}
+  <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-20">
+    <div 
+      className="h-full bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-1000 ease-out"
+      style={{ width: `${(currentSlide + 1) / slides.length * 100}%` }}
+    ></div>
+  </div>
+</section>
+
+      
       {/* 2. Classic Services Section */}
-      <section id="services" className="py-20 md:py-24 bg-white">
+      <section id="services" className="py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-20">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-        Our Core Services
+      <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-600 font-medium text-sm mb-4">
+        Our Services
+      </span>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+        Solutions That Drive <span className="text-blue-600">Your Growth</span>
       </h2>
-      <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-        We provide a complete suite of digital services to meet your business needs.
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        We deliver comprehensive digital solutions tailored to your unique business challenges and goals.
       </p>
     </div>
-    <div className="space-y-24">
+    <div className="space-y-16">
       {services.map((service, index) => (
-        <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
-          <div className={`relative w-full h-80 overflow-hidden rounded-lg shadow-xl ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+        <div key={index} className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 !== 0 ? 'md:grid-flow-dense' : ''}`}>
+          <div className={`relative w-full h-80 overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${index % 2 !== 0 ? 'md:col-start-2' : ''}`}>
             <Image
               src={service.image}
               alt={service.title}
               layout="fill"
-              objectFit="contain"
+              objectFit="cover"
+              className="hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
           </div>
-          <div>
-            <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-              {React.cloneElement(service.icon, { className: "w-8 h-8 text-green-600" })}
+          <div className={`${index % 2 !== 0 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
+              {React.cloneElement(service.icon, { className: "w-8 h-8 text-white" })}
             </div>
             <h3 className="text-3xl font-bold text-gray-800 mb-4">{service.title}</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">{service.description}</p>
-            <ul className="space-y-2 mb-8">
+            <p className="text-gray-600 leading-relaxed mb-6 text-lg">{service.description}</p>
+            <ul className="space-y-3 mb-8">
               {service.features.map((feature) => (
                 <li key={feature} className="flex items-center">
                   <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
+                  <span className="text-gray-700 font-medium">{feature}</span>
                 </li>
               ))}
             </ul>
-            <a href="#" className="inline-flex items-center group font-semibold text-green-600">
+            <a href="#" className="inline-flex items-center group font-semibold text-blue-600 hover:text-blue-700">
               Learn More
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
             </a>
           </div>
         </div>
@@ -311,118 +328,142 @@ export default function HomePage() {
 </section>
 
       {/* Showcase Section */}
-      <section id="showcase" className="py-24 bg-gray-50 relative" ref={showcaseRef}>
-        <div className="absolute inset-0 bg-vector-green opacity-10"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <span className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-base font-semibold mb-4 animate__animated animate__fadeInDown">
-              Our Works
-            </span>
-            <h2 className="text-5xl font-extrabold text-gray-900 mb-4 animate__animated animate__zoomIn">Project Showcase</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-              Discover how we transform ideas into digital experiences
-            </p>
-          </div>
+<section id="showcase" className="py-24 bg-white relative overflow-hidden" ref={showcaseRef}>
+  {/* Animated Background Elements */}
+  <div className="absolute inset-0">
+    <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-50 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-50 rounded-full blur-3xl"></div>
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-50 rounded-full blur-2xl"></div>
+  </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {showcaseProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 bg-white animate__animated animate__fadeInUp animate__delay-${index}s`}
-              >
-                <div className="relative h-64" onClick={() => openProjectModal(project)}>
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                </div>
+  {/* Grid Pattern Overlay */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
 
-                <div className="absolute top-4 right-4 bg-emerald-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-                  {project.client}
-                </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="text-center mb-20">
+      <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl text-base font-semibold text-cyan-700 mb-6">
+        <div className="w-2 h-2 bg-cyan-500 rounded-full mr-3"></div>
+        PROJECT SHOWCASE
+      </div>
+      <h2 className="text-6xl font-black text-gray-900 mb-6">
+        Digital <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Innovations</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        Where cutting-edge technology meets exceptional design to create unforgettable digital experiences
+      </p>
+    </div>
 
-                <div className="p-8 bg-white relative z-10">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <span className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-medium">
-                      {project.title.includes("Adstudio") ? "E-commerce" :
-                        project.title.includes("BakeCity") ? "Service" : "Portfolio"}
-                    </span>
-                  </div>
-
-                  <p className="text-gray-600 mb-6 text-lg line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="flex space-x-6">
-                    {project.websiteUrl && (
-                      <a
-                        href={project.websiteUrl}
-                        target="_blank"
-                        rel="noopener"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-base text-emerald-600 hover:text-emerald-800 flex items-center font-semibold"
-                      >
-                        <ExternalLink className="w-5 h-5 mr-2" /> Visit
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-base text-gray-600 hover:text-gray-900 flex items-center font-semibold"
-                      >
-                        <Github className="w-5 h-5 mr-2" /> Code
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Dedicated Call to Action for Digital Menu Plans (Opens Modal) */}
-      <section className="py-20 bg-gradient-to-br from-green-600 to-green-800 text-white text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Revolutionize Your Restaurant's Ordering</h2>
-          <p className="text-lg mb-8 opacity-90">Explore our innovative digital solutions designed to enhance customer experience and streamline operations.</p>
-          <button
-            onClick={() => handleOpenModal(digitalMenuPlansLink)} // Use button to open modal
-            className="inline-flex items-center group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:bg-gray-100"
+    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
+      {showcaseProjects.map((project, index) => (
+        <div
+          key={project.id}
+          className="group relative bg-white border border-gray-200 rounded-3xl overflow-hidden hover:border-cyan-300 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/10"
+          style={{
+            animationDelay: `${index * 200}ms`
+          }}
+        >
+          {/* Project Image with Hover Effect */}
+          <div 
+            className="relative h-56 overflow-hidden cursor-pointer"
+            onClick={() => openProjectModal(project)}
           >
-            See Our Digital Restaurant Menu Plans
-            <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
-        </div>
-      </section>
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent"></div>
+            
+            {/* Hover Effect Layer */}
+            <div className="absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-all duration-500"></div>
+            
+            {/* Project Badge */}
+            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-gray-200 shadow-lg">
+              <span className="text-gray-800 text-sm font-semibold">
+                {project.client}
+              </span>
+            </div>
 
-
-      {/* 5. Clients Section (Optional - uncomment if you want to keep it) */}
-      {/*
-      <section id="clients" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Our Trusted Clients</h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">We partner with businesses across various industries to drive digital transformation.</p>
+            {/* Tech Stack Floating Icons */}
+            <div className="absolute bottom-4 left-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              {project.techStack?.map((tech : any, techIndex : any) => (
+                <div key={techIndex} className="w-8 h-8 bg-white/90 backdrop-blur-md rounded-lg flex items-center justify-center border border-gray-200 shadow-sm">
+                  <span className="text-gray-700 text-xs font-bold">{tech}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="flex justify-center items-center space-x-8 overflow-x-auto p-4">
-            {clients.map((client, index) => (
-              <div key={index} className="flex-shrink-0">
-                <Image src={client.logo} alt={client.name} width={100} height={50} objectFit="contain"/>
+
+          {/* Content Section */}
+          <div className="p-6 relative">
+            {/* Project Title and Category */}
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-xl font-bold text-gray-900 group-hover:text-cyan-700 transition-colors duration-300">
+                {project.title}
+              </h3>
+              <span className="px-3 py-1 bg-cyan-50 border border-cyan-200 text-cyan-700 rounded-full text-xs font-medium">
+                {project?.category || "Web App"}
+              </span>
+            </div>
+
+            {/* Project Description */}
+            <p className="text-gray-600 mb-6 leading-relaxed text-sm line-clamp-2">
+              {project.description}
+            </p>
+
+            {/* Stats Bar */}
+            <div className="flex justify-between items-center mb-6 text-xs text-gray-500">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                Completed
               </div>
-            ))}
+              <div className="flex items-center space-x-4">
+                <span>🚀 Production Ready</span>
+                <span>⭐ 4.8/5</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex space-x-3">
+              {project.websiteUrl && (
+                <a
+                  href={project.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white py-3 px-4 rounded-xl text-sm font-semibold text-center transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Live Demo
+                </a>
+              )}
+              
+            </div>
           </div>
+
+          {/* Glow Effect */}
+          <div className="absolute inset-0 rounded-3xl bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-all duration-500 pointer-events-none"></div>
         </div>
-      </section>
-      */}
+      ))}
+    </div>
+
+    {/* CTA Section */}
+    <div className="text-center mt-16">
+      <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-2xl px-8 py-6 shadow-lg">
+        <div className="text-left">
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">Ready to Start Your Project?</h3>
+          <p className="text-gray-600">Let's build something amazing together</p>
+        </div>
+        <button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
+          Start Project
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      
 
       {/* Modal Component */}
       {isModalOpen && (
@@ -450,528 +491,3 @@ export default function HomePage() {
   )
 }
 
-// "use client"
-
-// import { useState, useEffect, useRef } from "react"
-// import Image from "next/image"
-// import {
-//   ChevronLeft,
-//   ChevronRight,
-//   Check,
-//   Star,
-//   ShoppingCart,
-//   Code,
-//   Cog as Cogs,
-//   ArrowRight,
-//   X,
-//   ExternalLink,
-//   Github
-// } from "lucide-react"
-
-// function HomePage() {
-//   const [currentSlide, setCurrentSlide] = useState(0)
-//   const [typedText, setTypedText] = useState("")
-//   const [isTyping, setIsTyping] = useState(true)
-//   const [isModalOpen, setIsModalOpen] = useState(false)
-//   const [modalContentUrl, setModalContentUrl] = useState("")
-//   const showcaseRef = useRef<HTMLDivElement>(null)
-//   const [activeTab, setActiveTab] = useState(0)
-
-//   // Hero Slider Data
-//   const slides = [
-//     {
-//       title: "Digital Excellence",
-//       subtitle: "Transforming businesses with cutting-edge technology solutions",
-//       cta: "Get Started",
-//       image: "/slider-1.jpg",
-//       overlay: "bg-gradient-to-r from-blue-900/70 to-purple-900/50"
-//     },
-//     {
-//       title: "Web & App Development",
-//       subtitle: "Creating responsive and user-friendly digital experiences",
-//       cta: "Our Services",
-//       image: "/slider-2.jpg",
-//       overlay: "bg-gradient-to-r from-indigo-900/70 to-pink-900/50"
-//     },
-//     {
-//       title: "ERP Solutions",
-//       subtitle: "Streamline your business operations with our ERP systems",
-//       cta: "View Portfolio",
-//       image: "/slider-3.jpg",
-//       overlay: "bg-gradient-to-r from-cyan-900/70 to-emerald-900/50"
-//     },
-//   ]
-
-//   // Services Section Data
-//   const services = [
-//     {
-//       icon: <Cogs className="w-10 h-10 text-emerald-600" />,
-//       title: "ERP Systems",
-//       description: "Comprehensive enterprise resource planning solutions to streamline your business operations, from inventory to financial reporting.",
-//       features: ["Inventory Management", "Financial Reporting", "HR Management", "Production Planning"],
-//       image: "/erp.png",
-//       color: "bg-emerald-100"
-//     },
-//     {
-//       icon: <Code className="w-10 h-10 text-emerald-600" />,
-//       title: "Web & App Development",
-//       description: "Custom web and mobile applications built with modern technologies and best practices for a seamless user experience.",
-//       features: ["Responsive Design", "Mobile Apps (iOS & Android)", "Progressive Web Apps", "API Development"],
-//       image: "/development.png",
-//       color: "bg-teal-100"
-//     },
-//     {
-//       icon: <ShoppingCart className="w-10 h-10 text-emerald-600" />,
-//       title: "E-Commerce Solutions",
-//       description: "Complete e-commerce platforms with secure payment integration, inventory management, and powerful analytics.",
-//       features: ["Online Storefronts", "Secure Payment Gateway", "Order Management", "Sales Analytics"],
-//       image: "/ecommerce.png",
-//       color: "bg-green-100"
-//     },
-//     {
-//       icon: <Star className="w-10 h-10 text-emerald-600" />,
-//       title: "Digital Excellence",
-//       description: "Comprehensive digital transformation services including strategy, cloud solutions, and automation to elevate your business.",
-//       features: ["Digital Strategy", "Cloud Solutions", "Business Analytics", "Process Automation"],
-//       image: "/analysis.png",
-//       color: "bg-cyan-100"
-//     },
-//   ]
-
-//   // Showcase Projects
-//   const showcaseProjects = [
-//     {
-//       id: 1,
-//       title: "Adstudio (Menswear E-commerce)",
-//       description: "Full-fledged e-commerce website for a menswear brand, featuring product catalog, secure checkout, and order management.",
-//       coverImage: "/adstudios.png",
-//       websiteUrl: "https://adstudios.in/",
-//       githubUrl: null,
-//       client: "Adstudio, Kochi",
-//     },
-//     {
-//       id: 2,
-//       title: "BakeCity Hyper (Restaurant & Hotel)",
-//       description: "Integrated website for a restaurant, hotel, and bakery, showcasing services, menus, and booking.",
-//       coverImage: "/bakecity.png",
-//       websiteUrl: "https://bakecityhyper.com/",
-//       githubUrl: null,
-//       client: "BakeCity Hyper, Calicut",
-//     },
-//     {
-//       id: 3,
-//       title: "Mahesh GANGADHARAN (Portrait Artist)",
-//       description: "Artist portfolio website to showcase his renowned portrait works and facilitate inquiries.",
-//       coverImage: "/maheshgangatharan.png",
-//       websiteUrl: "https://sirajbinsyed.github.io/mahesh/",
-//       githubUrl: "https://github.com/sirajbinsyed/mahesh",
-//       client: "Mahesh GANGADHARAN, Portrait Artist",
-//     }
-//   ]
-
-//   // External Links
-//   const digitalMenuPlansLink = "https://sirajbinsyed.github.io/restaurant_menu_system_plans/"
-//   const digitalMenuBasePlanLink = "https://choisircraft.github.io/digital-Menu-Base-Plan/"
-
-//   // Typing animation effect
-//   useEffect(() => {
-//     const text = "Welcome to Choisir Craft"
-//     let index = 0
-//     const timer = setInterval(() => {
-//       if (index < text.length) {
-//         setTypedText(text.slice(0, index + 1))
-//         index++
-//       } else {
-//         setIsTyping(false)
-//         clearInterval(timer)
-//       }
-//     }, 100)
-//     return () => clearInterval(timer)
-//   }, [])
-
-//   // Hero slider auto-advance
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentSlide((prev) => (prev + 1) % slides.length)
-//     }, 5000)
-//     return () => clearInterval(interval)
-//   }, [slides.length])
-
-//   // Navigation functions
-//   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-//   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-
-//   // Handler for opening the modal
-//   const handleOpenModal = (url: string) => {
-//     setModalContentUrl(url)
-//     setIsModalOpen(true)
-//   }
-
-//   // Handler for closing the modal
-//   const handleCloseModal = () => {
-//     setIsModalOpen(false)
-//     setModalContentUrl("")
-//   }
-
-//   // Project modal functions
-//   const openProjectModal = (project: typeof showcaseProjects[number]) => {
-//     setModalContentUrl(project.websiteUrl || "")
-//     setIsModalOpen(true)
-//   }
-
-//   // Scroll to showcase
-//   const scrollToShowcase = () => {
-//     showcaseRef.current?.scrollIntoView({ behavior: 'smooth' })
-//   }
-
-//   return (
-//     <div className="pt-16 bg-gray-50 overflow-hidden">
-//       {/* Hero Slider Section */}
-//  <section className="relative h-screen overflow-hidden">
-//         {/* Animated background particles */}
-//         <div className="absolute inset-0 overflow-hidden">
-//           {[...Array(30)].map((_, i) => (
-//             <div 
-//               key={i} 
-//               className="absolute w-2 h-2 bg-white/20 rounded-full animate-float" 
-//               style={{
-//                 left: `${Math.random() * 100}%`, 
-//                 top: `${Math.random() * 100}%`, 
-//                 animationDelay: `${Math.random() * 5}s`, 
-//                 animationDuration: `${3 + Math.random() * 4}s`,
-//                 width: `${2 + Math.random() * 3}px`,
-//                 height: `${2 + Math.random() * 3}px`
-//               }}
-//             />
-//           ))}
-//         </div>
-        
-//         {slides.map((slide, index) => (
-//           <div 
-//             key={index} 
-//             className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-//           >
-//             <div className="absolute inset-0">
-//               <img 
-//                 src={slide.image} 
-//                 alt="Slide Background" 
-//                 className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000" 
-//               />
-//             </div>
-//             <div className={`absolute inset-0 ${slide.overlay}`}></div>
-//             <div className="flex items-center justify-center h-full text-white text-center px-4 relative z-10">
-//               <div className="max-w-4xl mx-auto">
-//                 <div className="mb-4">
-//                   <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium backdrop-blur-sm animate-fade-in-up">
-//                     {typedText}{isTyping && <span className="animate-pulse">|</span>}
-//                   </span>
-//                 </div>
-//                 <h1 className="text-4xl md:text-7xl font-bold mb-6 animate-fade-in-up animation-delay-300 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
-//                   {slide.title}
-//                 </h1>
-//                 <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up animation-delay-600 leading-relaxed text-white/90">
-//                   {slide.subtitle}
-//                 </p>
-//                 <div className="flex gap-4 justify-center animate-fade-in-up animation-delay-900">
-//                   <button className="group bg-white/20 hover:bg-white hover:text-gray-800 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm border border-white/30">
-//                     {slide.cta}
-//                     <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-//                   </button>
-//                   <button 
-//                     onClick={scrollToShowcase}
-//                     className="group bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm border border-white/30"
-//                   >
-//                     View Our Work
-//                   </button>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-        
-//         {/* Navigation Buttons */}
-//         <button 
-//           onClick={prevSlide} 
-//           className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm group z-20"
-//         >
-//           <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" />
-//         </button>
-//         <button 
-//           onClick={nextSlide} 
-//           className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm group z-20"
-//         >
-//           <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-//         </button>
-        
-//         {/* Dots Indicator */}
-//         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
-//           {slides.map((_, index) => (
-//             <button 
-//               key={index} 
-//               onClick={() => setCurrentSlide(index)} 
-//               className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? "bg-white scale-125" : "bg-white/50 hover:bg-white/75"}`}
-//             />
-//           ))}
-//         </div>
-        
-//         {/* Scroll indicator */}
-//         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
-//           <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-//             <div className="w-1 h-2 bg-white rounded-full mt-2 animate-scroll-indicator"></div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Futuristic Contactless Dining Plans Section */}
-//       <section className="py-24 bg-white relative">
-//         <div className="absolute inset-0 bg-vector-green opacity-10"></div>
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-//           <div className="text-center mb-16">
-//             <span className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-base font-semibold mb-4 animate__animated animate__fadeInDown">
-//               Futuristic Contactless Dining
-//             </span>
-//             <h2 className="text-5xl font-extrabold text-gray-900 mb-4 animate__animated animate__zoomIn">Basic Plan</h2>
-//             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-//               Transform your restaurant with our digital menu solutions
-//             </p>
-//           </div>
-
-//           <div className="max-w-2xl mx-auto bg-gray-50 rounded-2xl p-10 shadow-xl animate__animated animate__fadeInUp">
-//             <div className="text-center mb-8">
-//               <span className="inline-block px-4 py-2 bg-red-500 text-white rounded-full text-lg font-semibold animate__animated animate__pulse animate__infinite">
-//                 60% OFF
-//               </span>
-//               <h3 className="text-3xl font-bold text-gray-900 mt-4">₹2000 <span className="line-through text-gray-500">₹5000</span> / First Year</h3>
-//               <p className="text-gray-600 mt-2">Yearly Renewal: ₹1000</p>
-//             </div>
-
-//             <ul className="space-y-4 mb-8">
-//               <li className="flex items-start animate__animated animate__fadeInUp animate__delay-1s">
-//                 <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-//                 <span className="text-gray-700 text-lg">Live Menu Management: Instantly upload and update menu items, prices, and descriptions through a simple admin panel.</span>
-//               </li>
-//               <li className="flex items-start animate__animated animate__fadeInUp animate__delay-2s">
-//                 <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-//                 <span className="text-gray-700 text-lg">Real-Time Item Availability: Easily mark items as 'Available' or 'Unavailable' with a single click to keep customers informed.</span>
-//               </li>
-//               <li className="flex items-start animate__animated animate__fadeInUp animate__delay-3s">
-//                 <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-//                 <span className="text-gray-700 text-lg">Dynamic QR Code: One permanent QR code for your restaurant. All menu changes update automatically, no reprinting needed.</span>
-//               </li>
-//             </ul>
-
-//             {/* <div className="text-center mb-8">
-//               <h4 className="text-xl font-semibold text-gray-900 mb-4 animate__animated animate__fadeInUp animate__delay-4s">See It In Action</h4>
-//               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-//                 {["Digital Menu Showcase 1", "Digital Menu Showcase 2", "Digital Menu Showcase 3", "Digital Menu Showcase 4"].map((showcase, index) => (
-//                   <div key={index} className={`bg-gray-200 h-32 rounded-lg flex items-center justify-center text-gray-700 font-medium animate__animated animate__fadeInUp animate__delay-${index + 5}s`}>
-//                     {showcase}
-//                   </div>
-//                 ))}
-//               </div>
-//             </div> */}
-
-//             <button
-//               onClick={() => handleOpenModal(digitalMenuBasePlanLink)}
-//               className="w-full px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-md animate__animated animate__pulse animate__infinite"
-//             >
-//               Choose Plan
-//               <ArrowRight className="inline-block ml-3 w-5 h-5" />
-//             </button>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Services Section */}
-//       <section id="services" className="py-24 bg-white relative">
-//         <div className="absolute inset-0 bg-vector-green opacity-10"></div>
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-//           <div className="text-center mb-16">
-//             <h2 className="text-5xl font-extrabold text-gray-900 mb-4 animate__animated animate__fadeInDown">Our Digital Services</h2>
-//             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-//               Transformative solutions for the modern business landscape
-//             </p>
-//           </div>
-
-//           <div className="flex flex-col lg:flex-row gap-12">
-//             <div className="lg:w-1/3">
-//               <div className="space-y-4 sticky top-8">
-//                 {services.map((service, index) => (
-//                   <button
-//                     key={index}
-//                     className={`w-full text-left px-8 py-6 rounded-xl transition-all flex items-center gap-4 shadow-md hover:shadow-lg ${
-//                       activeTab === index
-//                         ? 'bg-emerald-100 text-emerald-700 border-l-4 border-emerald-600'
-//                         : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-//                     } animate__animated animate__fadeInLeft animate__delay-${index}s`}
-//                     onClick={() => setActiveTab(index)}
-//                   >
-//                     <div className="p-3 rounded-full bg-white shadow-md">
-//                       {service.icon}
-//                     </div>
-//                     <span className="font-semibold text-lg">{service.title}</span>
-//                   </button>
-//                 ))}
-//               </div>
-//             </div>
-
-//             <div className="lg:w-2/3">
-//               <div className="bg-gray-50 rounded-2xl p-10 shadow-xl animate__animated animate__fadeInRight">
-//                 <div className="relative h-72 mb-10 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-//                   <div className="relative w-full h-full max-w-[80%] max-h-[80%]">
-//                     <img
-//                       src={services[activeTab].image}
-//                       alt={services[activeTab].title}
-//                       className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
-//                     />
-//                   </div>
-//                   <div className={`absolute inset-0 ${services[activeTab].color} opacity-20`}></div>
-//                 </div>
-
-//                 <h3 className="text-3xl font-bold text-gray-900 mb-4 animate__animated animate__fadeInUp">{services[activeTab].title}</h3>
-//                 <p className="text-gray-600 mb-6 text-lg animate__animated animate__fadeInUp animate__delay-1s">{services[activeTab].description}</p>
-
-//                 <ul className="space-y-4 mb-8">
-//                   {services[activeTab].features.map((feature, i) => (
-//                     <li key={i} className={`flex items-center animate__animated animate__fadeInUp animate__delay-${i + 2}s`}>
-//                       <Check className="w-6 h-6 text-emerald-500 mr-4 flex-shrink-0" />
-//                       <span className="text-gray-700 text-lg">{feature}</span>
-//                     </li>
-//                   ))}
-//                 </ul>
-
-//                 <a
-//                   href="#"
-//                   className="inline-flex items-center px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold transition-all transform hover:scale-105 shadow-md animate__animated animate__pulse animate__infinite"
-//                 >
-//                   Learn more
-//                   <ArrowRight className="ml-3 w-5 h-5" />
-//                 </a>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Showcase Section */}
-//       <section id="showcase" className="py-24 bg-gray-50 relative" ref={showcaseRef}>
-//         <div className="absolute inset-0 bg-vector-green opacity-10"></div>
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-//           <div className="text-center mb-16">
-//             <span className="inline-block px-6 py-3 bg-emerald-100 text-emerald-800 rounded-full text-base font-semibold mb-4 animate__animated animate__fadeInDown">
-//               Our Works
-//             </span>
-//             <h2 className="text-5xl font-extrabold text-gray-900 mb-4 animate__animated animate__zoomIn">Project Showcase</h2>
-//             <p className="text-xl text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
-//               Discover how we transform ideas into digital experiences
-//             </p>
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {showcaseProjects.map((project, index) => (
-//               <div
-//                 key={project.id}
-//                 className={`group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 bg-white animate__animated animate__fadeInUp animate__delay-${index}s`}
-//               >
-//                 <div className="relative h-64" onClick={() => openProjectModal(project)}>
-//                   <img
-//                     src={project.coverImage}
-//                     alt={project.title}
-//                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-//                   />
-//                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-//                 </div>
-
-//                 <div className="absolute top-4 right-4 bg-emerald-100/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-//                   {project.client}
-//                 </div>
-
-//                 <div className="p-8 bg-white relative z-10">
-//                   <div className="flex justify-between items-start mb-4">
-//                     <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
-//                       {project.title}
-//                     </h3>
-//                     <span className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm font-medium">
-//                       {project.title.includes("Adstudio") ? "E-commerce" :
-//                         project.title.includes("BakeCity") ? "Service" : "Portfolio"}
-//                     </span>
-//                   </div>
-
-//                   <p className="text-gray-600 mb-6 text-lg line-clamp-2">
-//                     {project.description}
-//                   </p>
-
-//                   <div className="flex space-x-6">
-//                     {project.websiteUrl && (
-//                       <a
-//                         href={project.websiteUrl}
-//                         target="_blank"
-//                         rel="noopener"
-//                         onClick={(e) => e.stopPropagation()}
-//                         className="text-base text-emerald-600 hover:text-emerald-800 flex items-center font-semibold"
-//                       >
-//                         <ExternalLink className="w-5 h-5 mr-2" /> Visit
-//                       </a>
-//                     )}
-//                     {project.githubUrl && (
-//                       <a
-//                         href={project.githubUrl}
-//                         target="_blank"
-//                         rel="noopener"
-//                         onClick={(e) => e.stopPropagation()}
-//                         className="text-base text-gray-600 hover:text-gray-900 flex items-center font-semibold"
-//                       >
-//                         <Github className="w-5 h-5 mr-2" /> Code
-//                       </a>
-//                     )}
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Dedicated Call to Action for Digital Menu Plans */}
-//       <section className="py-24 bg-gradient-to-br from-emerald-600 to-teal-800 text-white text-center relative">
-//         <div className="absolute inset-0 bg-vector-green opacity-20"></div>
-//         <div className="max-w-4xl mx-auto px-4 relative z-10">
-//           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 animate__animated animate__zoomIn">Revolutionize Your Restaurant's Ordering</h2>
-//           <p className="text-xl mb-10 opacity-90 animate__animated animate__fadeInUp animate__delay-1s">Explore our innovative digital solutions designed to enhance customer experience and streamline operations.</p>
-//           <button
-//             onClick={() => handleOpenModal(digitalMenuPlansLink)}
-//             className="inline-flex items-center group bg-white text-emerald-600 px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:bg-gray-100 animate__animated animate__pulse animate__infinite"
-//           >
-//             See Our Digital Restaurant Menu Plans
-//             <ArrowRight className="inline-block ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-//           </button>
-//         </div>
-//       </section>
-
-//       {/* Modal Component */}
-//       {isModalOpen && (
-//         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm overflow-y-auto p-4 transition-all duration-300">
-//           <div className="relative w-full max-w-screen-lg bg-white rounded-2xl shadow-2xl p-6 animate__animated animate__zoomIn">
-//             <button
-//               onClick={handleCloseModal}
-//               className="absolute top-4 right-4 z-20 p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50"
-//               aria-label="Close modal"
-//             >
-//               <X className="w-6 h-6 text-gray-700" />
-//             </button>
-//             <div className="w-full h-[70vh] flex justify-center items-center">
-//               <iframe
-//                 src={modalContentUrl}
-//                 title="Digital Menu Content"
-//                 className="w-full h-full rounded-lg border-0"
-//                 sandbox="allow-scripts allow-same-origin allow-popups"
-//               ></iframe>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default HomePage

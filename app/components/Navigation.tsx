@@ -156,45 +156,53 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg py-2" 
-          : "bg-white/90 backdrop-blur-sm py-3"
+          ? "bg-white/20 backdrop-blur-xl shadow-lg shadow-black/5 py-2 border-b border-white/20" 
+          : "bg-white/15 backdrop-blur-lg py-3 border-b border-white/10"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -left-1/2 w-full h-64 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -top-1/2 -right-1/2 w-full h-64 bg-gradient-to-r from-emerald-400/10 to-cyan-400/10 rounded-full blur-3xl animate-float-delayed"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo (Left) */}
           <div 
-            className="flex-shrink-0 flex items-center cursor-pointer transition-all duration-300 hover:scale-105"
+            className="flex-shrink-0 flex items-center cursor-pointer transition-all duration-300 hover:scale-105 group"
             onClick={() => setCurrentPage("home")}
           >
-            <Image
-              src="/choisircraft_logo_transparent.png"
-              alt="Choisir Craft Logo"
-              width={160}
-              height={60}
-              className="h-10 w-auto md:h-12"
-              priority
-            />
+            <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-2 group-hover:bg-white/30 group-hover:border-white/40 transition-all duration-300">
+              <Image
+                src="/choisircraft_logo_transparent.png"
+                alt="Choisir Craft Logo"
+                width={160}
+                height={60}
+                className="h-10 w-auto md:h-12"
+                priority
+              />
+            </div>
           </div>
 
           {/* Center Navigation */}
           <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
-            <div className="flex items-center space-x-1 bg-white/80 backdrop-blur-sm rounded-2xl p-1.5 shadow-sm border border-gray-100">
+            <div className="flex items-center space-x-1 bg-white/20 backdrop-blur-xl rounded-2xl p-1.5 shadow-lg shadow-black/5 border border-white/30">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setCurrentPage(item.id)}
                   onMouseEnter={() => setHoveredItem(item.id)}
                   onMouseLeave={() => setHoveredItem(null)}
-                  className={`relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  className={`relative px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     currentPage === item.id
-                      ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg shadow-emerald-200"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      ? "bg-white/40 backdrop-blur-md text-gray-800 shadow-lg shadow-black/10 border border-white/40"
+                      : "text-gray-700 hover:text-gray-900 hover:bg-white/30 hover:border-white/40 border border-transparent"
                   }`}
                 >
                   {item.label}
                   {(hoveredItem === item.id || currentPage === item.id) && (
-                    <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full bg-emerald-500 ${currentPage === item.id ? "animate-pulse" : ""}`}></div>
+                    <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 ${currentPage === item.id ? "animate-pulse" : ""}`}></div>
                   )}
                 </button>
               ))}
@@ -203,13 +211,15 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
 
           {/* Right Side Contact */}
           <div className="hidden md:flex ml-auto flex-shrink-0 items-center">
-            <div className="flex items-center space-x-2 bg-gradient-to-r from-emerald-50 to-cyan-50 px-4 py-2.5 rounded-xl border border-emerald-100 shadow-sm">
-              <div className="bg-emerald-500 p-1.5 rounded-full">
+            <div className="flex items-center space-x-3 bg-white/20 backdrop-blur-xl px-5 py-3 rounded-2xl shadow-lg shadow-black/5 border border-white/30 hover:bg-white/30 hover:border-white/40 transition-all duration-300 group">
+              <div className="bg-gradient-to-br from-emerald-400 to-cyan-500 p-2 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <Phone className="h-4 w-4 text-white" />
               </div>
               <div>
                 <p className="text-xs font-medium text-gray-600">Available 24/7</p>
-                <p className="text-emerald-700 font-bold text-sm">+91 94952 57093</p>
+                <p className="text-gray-800 font-bold text-sm bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">
+                  +91 94952 57093
+                </p>
               </div>
             </div>
           </div>
@@ -218,10 +228,10 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
           <div className="md:hidden flex-shrink-0 ml-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2.5 rounded-xl transition-all duration-300 ${
+              className={`p-3 rounded-2xl transition-all duration-300 backdrop-blur-md border ${
                 isMenuOpen
-                  ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:shadow-md"
+                  ? "bg-white/40 border-white/40 text-gray-800 shadow-lg shadow-black/10"
+                  : "bg-white/20 border-white/30 text-gray-700 hover:bg-white/30 hover:border-white/40 hover:shadow-md"
               }`}
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -236,8 +246,8 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white/95 backdrop-blur-md border-t border-gray-200/50 shadow-xl">
-          <div className="px-4 py-4 space-y-1">
+        <div className="bg-white/20 backdrop-blur-xl border-t border-white/20 shadow-2xl shadow-black/10 mt-2 mx-4 rounded-2xl overflow-hidden">
+          <div className="px-3 py-3 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -245,34 +255,55 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
                   setCurrentPage(item.id)
                   setIsMenuOpen(false)
                 }}
-                className={`w-full text-left px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 flex items-center justify-between ${
+                className={`w-full text-left px-4 py-4 rounded-xl text-base font-semibold transition-all duration-300 flex items-center justify-between backdrop-blur-sm border ${
                   currentPage === item.id
-                    ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-md"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                    ? "bg-white/40 border-white/40 text-gray-800 shadow-lg"
+                    : "text-gray-700 border-white/20 bg-white/10 hover:bg-white/20 hover:border-white/30"
                 }`}
               >
                 {item.label}
                 {currentPage === item.id && (
-                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
                 )}
               </button>
             ))}
 
             {/* Contact section in mobile menu */}
-            <div className="mt-4 pt-4 border-t border-gray-200/50">
-              <div className="flex items-center space-x-3 bg-gradient-to-r from-emerald-50 to-cyan-50 p-4 rounded-xl border border-emerald-100">
-                <div className="bg-emerald-500 p-2 rounded-full shadow-sm">
+            <div className="mt-3 pt-3 border-t border-white/20">
+              <div className="flex items-center space-x-4 bg-white/20 backdrop-blur-sm p-4 rounded-xl border border-white/30">
+                <div className="bg-gradient-to-br from-emerald-400 to-cyan-500 p-2.5 rounded-xl shadow-lg">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-600">Call us anytime</p>
-                  <p className="text-emerald-700 font-bold">+91 94952 57093</p>
+                  <p className="text-gray-800 font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">
+                    +91 94952 57093
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          33% { transform: translate(30px, -50px) rotate(120deg); }
+          66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        @keyframes float-delayed {
+          0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+          33% { transform: translate(-30px, 50px) rotate(-120deg); }
+          66% { transform: translate(20px, -20px) rotate(-240deg); }
+        }
+        .animate-float {
+          animation: float 15s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+          animation: float-delayed 18s ease-in-out infinite;
+        }
+      `}</style>
     </nav>
   )
 }

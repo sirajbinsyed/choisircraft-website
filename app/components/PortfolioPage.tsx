@@ -271,55 +271,7 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
-
-      {/* Digital Menu Concept Banner */}
-      <section className="py-16 bg-gradient-to-br from-purple-700 to-blue-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(25)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute bg-white/10 rounded-full animate-float-slow"
-              style={{
-                width: `${Math.random() * 15 + 5}px`,
-                height: `${Math.random() * 15 + 5}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 10}s`,
-                animationDuration: `${5 + Math.random() * 5}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {digitalMenuConcept.title}
-          </h2>
-          <p className="text-lg mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
-            {digitalMenuConcept.description}
-          </p>
-
-          {/* This section now displays the features as a simple list, not a marquee */}
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-            <div className="space-y-4">
-              {digitalMenuConcept.features.map((feature, index) => (
-                <div key={index} className="flex items-center text-lg">
-                  <Check className="w-6 h-6 text-green-400 mr-3 flex-shrink-0" />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <button
-            onClick={() => openConceptModal(digitalMenuConcept)} // Use the new handler
-            className="inline-flex items-center group bg-white text-purple-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:bg-gray-100 mt-8" // Added mt-8 for spacing
-          >
-            {digitalMenuConcept.callToAction}
-            <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
-        </div>
-      </section>
+      
 
       {/* Modal for Project Details */}
       {isModalOpen && selectedProject && !showIframeModal && (

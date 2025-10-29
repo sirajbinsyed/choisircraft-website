@@ -5,117 +5,73 @@ import { Code, Cog, ShoppingCart, Star, ArrowRight, Check, Zap, Shield, Trending
 export default function ServicesPage() {
   const services = [
     {
-      icon: <Cog className="w-12 h-12" />,
+      icon: <Cog className="w-8 h-8" />,
       title: "ERP Systems",
-      description:
-        "Comprehensive enterprise resource planning solutions designed to streamline your business operations and boost productivity.",
-      features: [
-        "Custom ERP Development",
-        "System Integration",
-        "Data Migration",
-        "Training & Support",
-        "Real-time Analytics",
-        "Multi-location Support",
-      ],
-      technologies: ["Java", "Spring Boot", "Angular", "MySQL", "Apache Kafka"],
-      color: "green",
-      price: "Starting from ₹50,000",
+      description: "Streamline your business operations with custom enterprise solutions",
+      highlights: ["Custom Development", "System Integration", "Real-time Analytics"],
+      color: "from-green-500 to-emerald-600",
+      bgColor: "from-green-50 to-emerald-50"
     },
     {
-      icon: <Code className="w-12 h-12" />,
+      icon: <Code className="w-8 h-8" />,
       title: "Web & App Development",
-      description:
-        "Create stunning, responsive websites and mobile applications that engage your audience and drive business growth.",
-      features: [
-        "Responsive Web Design",
-        "Mobile App Development",
-        "Progressive Web Apps",
-        "API Development",
-        "E-commerce Integration",
-        "Performance Optimization",
-      ],
-      technologies: ["React", "Next.js", "React Native", "Node.js", "MongoDB"],
-      color: "blue",
-      price: "Starting from ₹25,000",
+      description: "Build engaging digital experiences that drive business growth",
+      highlights: ["Responsive Design", "Mobile Apps", "Performance Focused"],
+      color: "from-blue-500 to-cyan-600",
+      bgColor: "from-blue-50 to-cyan-50"
     },
     {
-      icon: <ShoppingCart className="w-12 h-12" />,
+      icon: <ShoppingCart className="w-8 h-8" />,
       title: "E-Commerce Solutions",
-      description:
-        "Launch your online store with our comprehensive e-commerce platforms featuring secure payments and inventory management.",
-      features: [
-        "Online Store Development",
-        "Payment Gateway Integration",
-        "Inventory Management",
-        "Order Processing",
-        "Customer Management",
-        "Analytics Dashboard",
-      ],
-      technologies: ["Shopify", "WooCommerce", "Magento", "Stripe", "PayPal"],
-      color: "purple",
-      price: "Starting from ₹35,000",
+      description: "Launch your online store with secure, scalable platforms",
+      highlights: ["Online Stores", "Payment Integration", "Inventory Management"],
+      color: "from-purple-500 to-pink-600",
+      bgColor: "from-purple-50 to-pink-50"
     },
     {
-      icon: <Star className="w-12 h-12" />,
+      icon: <Star className="w-8 h-8" />,
       title: "Digital Excellence",
-      description:
-        "Transform your business with our comprehensive digital transformation services and cloud solutions.",
-      features: [
-        "Digital Strategy Consulting",
-        "Cloud Migration",
-        "DevOps Implementation",
-        "Digital Marketing Integration",
-        "Analytics & Reporting",
-        "Automation Solutions",
-      ],
-      technologies: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform"],
-      color: "orange",
-      price: "Starting from ₹40,000",
-    },
+      description: "Transform your business with cutting-edge digital solutions",
+      highlights: ["Cloud Migration", "Digital Strategy", "Automation"],
+      color: "from-orange-500 to-amber-600",
+      bgColor: "from-orange-50 to-amber-50"
+    }
   ]
 
   const process = [
     {
       step: "01",
-      title: "Discovery & Planning",
-      description: "We analyze your requirements and create a comprehensive project roadmap.",
-      icon: <Zap className="w-8 h-8" />,
+      title: "Discover",
+      description: "We understand your needs and plan the perfect solution",
+      icon: <Zap className="w-6 h-6" />,
     },
     {
       step: "02",
-      title: "Design & Development",
-      description: "Our team creates intuitive designs and develops robust solutions.",
-      icon: <Code className="w-8 h-8" />,
+      title: "Design & Build",
+      description: "Create and develop your solution with precision",
+      icon: <Code className="w-6 h-6" />,
     },
     {
       step: "03",
-      title: "Testing & Quality Assurance",
-      description: "Rigorous testing ensures your solution meets the highest standards.",
-      icon: <Shield className="w-8 h-8" />,
+      title: "Test & Refine",
+      description: "Ensure quality and performance meet highest standards",
+      icon: <Shield className="w-6 h-6" />,
     },
     {
       step: "04",
-      title: "Deployment & Support",
-      description: "We deploy your solution and provide ongoing support and maintenance.",
-      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Launch & Grow",
+      description: "Deploy your solution and provide ongoing support",
+      icon: <TrendingUp className="w-6 h-6" />,
     },
-  ]
-
-  const benefits = [
-    "24/7 Technical Support",
-    "Scalable Solutions",
-    "Modern Technologies",
-    "Agile Development",
-    "Quality Assurance",
-    "Competitive Pricing",
   ]
 
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
+        {/* Background Elements */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(15)].map((_, i) => (
             <div
               key={i}
               className="absolute w-2 h-2 bg-green-400 rounded-full animate-float opacity-20"
@@ -129,142 +85,64 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 animate-fade-in-up">
-              Our <span className="text-green-600">Services</span>
+            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm border border-green-200 rounded-2xl text-green-600 font-semibold mb-6 shadow-lg">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
+              OUR SERVICES
+            </div>
+            <h1 className="text-6xl md:text-7xl font-black text-gray-900 mb-6">
+              What We <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Offer</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-300 leading-relaxed">
-              Comprehensive digital solutions designed to transform your business and accelerate growth in the digital
-              age
+            <p className="text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Comprehensive digital solutions designed to transform your business and accelerate growth
             </p>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-white/80 backdrop-blur-sm p-4 rounded-xl text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up border border-green-100"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <Check className="w-6 h-6 text-green-500 mx-auto mb-2" />
-                <p className="text-sm font-medium text-gray-700">{benefit}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - Simplified */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-fade-in-up ${
-                  index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
-                }`}
-                style={{ animationDelay: `${index * 200}ms` }}
+                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 border border-gray-200 hover:border-transparent transition-all duration-500 hover:scale-105 hover:shadow-2xl"
               >
-                <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <div className="relative">
-                    <div
-                      className={`w-20 h-20 bg-gradient-to-br ${
-                        service.color === "green"
-                          ? "from-green-400 to-green-600"
-                          : service.color === "blue"
-                            ? "from-blue-400 to-blue-600"
-                            : service.color === "purple"
-                              ? "from-purple-400 to-purple-600"
-                              : "from-orange-400 to-orange-600"
-                      } rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg hover:scale-110 hover:rotate-6 transition-all duration-300`}
-                    >
-                      {service.icon}
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full animate-ping opacity-75"></div>
+                {/* Background Gradient on Hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    {service.icon}
                   </div>
 
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  {/* Content */}
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                    {service.description}
+                  </p>
 
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Features:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center">
-                          <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                          <span className="text-gray-600 text-sm">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Technologies:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {service.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-green-100 hover:text-green-700 transition-colors duration-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-2xl font-bold text-green-600">{service.price}</p>
-                      <p className="text-sm text-gray-500">Custom pricing available</p>
-                    </div>
-                    <button
-                      className={`group bg-gradient-to-r ${
-                        service.color === "green"
-                          ? "from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                          : service.color === "blue"
-                            ? "from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
-                            : service.color === "purple"
-                              ? "from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700"
-                              : "from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
-                      } text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg`}
-                    >
-                      Get Quote
-                      <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className={`relative ${index % 2 === 1 ? "lg:col-start-1" : ""}`}>
-                  <div
-                    className={`bg-gradient-to-br ${
-                      service.color === "green"
-                        ? "from-green-100 to-green-200"
-                        : service.color === "blue"
-                          ? "from-blue-100 to-blue-200"
-                          : service.color === "purple"
-                            ? "from-purple-100 to-purple-200"
-                            : "from-orange-100 to-orange-200"
-                    } rounded-3xl p-8 transform hover:scale-105 transition-all duration-500`}
-                  >
-                    <div className="bg-white rounded-2xl p-8 shadow-xl">
-                      <div className="text-center">
-                        <div className="text-6xl mb-4">
-                          {service.color === "green"
-                            ? "⚙️"
-                            : service.color === "blue"
-                              ? "💻"
-                              : service.color === "purple"
-                                ? "🛒"
-                                : "⭐"}
-                        </div>
-                        <h4 className="text-xl font-bold text-gray-900 mb-2">Professional Service</h4>
-                        <p className="text-gray-600">End-to-end solution delivery</p>
+                  {/* Highlights */}
+                  <div className="space-y-2 mb-8">
+                    {service.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center text-gray-700">
+                        <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-3`}></div>
+                        <span className="font-medium">{highlight}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
+
+                  {/* CTA Button */}
+                  <button className={`group w-full bg-gradient-to-r ${service.color} text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center`}>
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -272,39 +150,49 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - Simplified */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
-              Our <span className="text-green-600">Process</span>
+            <h2 className="text-5xl font-black text-gray-900 mb-6">
+              How We <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">Work</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
-              A proven methodology that ensures successful project delivery and client satisfaction
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              A streamlined process designed for success and satisfaction
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((step, index) => (
               <div
                 key={index}
-                className="relative group animate-fade-in-up"
-                style={{ animationDelay: `${index * 200}ms` }}
+                className="relative group text-center"
               >
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center text-white mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                {/* Step Card */}
+                <div className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                  {/* Step Number */}
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
+                    {step.step}
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-4 mx-auto group-hover:scale-110 transition-transform duration-300">
                     {step.icon}
                   </div>
-                  <div className="text-3xl font-bold text-green-600 mb-2">{step.step}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
+
+                  {/* Content */}
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
 
+                {/* Connector Line */}
                 {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="w-8 h-8 text-green-400" />
+                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                    <ArrowRight className="w-6 h-6 text-green-400 opacity-60" />
                   </div>
                 )}
               </div>
@@ -312,6 +200,37 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can help bring your ideas to life with our expert services.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-green-600 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center">
+              Get Free Consultation
+              <ArrowRight className="w-5 h-5 ml-3" />
+            </button>
+            <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white/10 hover:scale-105">
+              View Our Work
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   )
 }
