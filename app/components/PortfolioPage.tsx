@@ -38,10 +38,10 @@ export default function PortfolioPage() {
     },
     {
       id: 3,
-      title: "Mahesh GANGADHARAN",
-      coverImage: "/maheshgangatharan.png",
-      websiteUrl: "https://sirajbinsyed.github.io/mahesh/",
-      category: "Portfolio",
+      title: "Amaze-ads",
+      coverImage: "/amazeads.png",
+      websiteUrl: "https://www.amazeads.in/",
+      category: "Website",
     },
     {
       id: 4,

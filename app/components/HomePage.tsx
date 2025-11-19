@@ -90,11 +90,11 @@ export default function HomePage() {
     },
     {
       id: 2,
-      title: "Bosco Bags (Manufacturing Company)",
-      coverImage: "/boscobags.png",
-      websiteUrl: "https://bosco-bags-6qb4.vercel.app/",
-      client: "BakeCity Hyper, Calicut",
-      category: "E-commerce"
+      title: "Amaze-ads (Frame Shop)",
+      coverImage: "/amazeads.png",
+      websiteUrl: "https://www.amazeads.in/",
+      client: "Frame Shop, Kayakulam",
+      category: "Website"
     },
     {
       id: 3,
