@@ -243,7 +243,7 @@ export default function Navigation({ currentPage, setCurrentPage }: NavigationPr
       {/* Mobile menu */}
       <div
         className={`lg:hidden transition-all duration-500 ease-in-out overflow-hidden ${
-          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="bg-white/20 backdrop-blur-xl border-t border-white/20 shadow-2xl shadow-black/10 mt-2 mx-4 rounded-2xl overflow-hidden">
