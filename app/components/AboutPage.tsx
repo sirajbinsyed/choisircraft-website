@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Users, Target, Award, TrendingUp, Clock, Shield, Zap, Rocket, Lightbulb, Heart, ArrowRight } from "lucide-react"
 
 export default function AboutPage() {
@@ -44,6 +45,13 @@ export default function AboutPage() {
     const timer = setTimeout(animateCounters, 500)
     return () => clearTimeout(timer)
   }, [])
+
+  const handleStartProject = () => {
+    const message = "Hi Choisir Craft! I would like to discuss a project.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919495257093?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div className="pt-16">
@@ -147,14 +155,15 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <button className="group bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/25 hover:scale-105 flex items-center justify-center">
+                <button onClick={handleStartProject} className="group bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/25 hover:scale-105 flex items-center justify-center">
                   Start Your Project
                   <Rocket className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
+                {/* <Link href="/portfolio">
                 <button className="group border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:border-green-500 hover:bg-green-50 hover:scale-105 flex items-center justify-center">
-                  Meet Our Team
-                  <Users className="w-5 h-5 ml-3 group-hover:scale-110 transition-transform duration-300" />
+                  View Our Works
                 </button>
+                </Link> */}
               </div>
             </div>
 
@@ -213,13 +222,9 @@ export default function AboutPage() {
             Let's discuss how we can help you achieve your digital goals and drive meaningful growth for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group bg-white text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center">
+            <button onClick={handleStartProject} className="group bg-white text-gray-900 px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center">
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
-            </button>
-            <button className="group border-2 border-white text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white/10 hover:scale-105 flex items-center">
-              Schedule Consultation
-              <Clock className="w-5 h-5 ml-3 group-hover:scale-110 transition-transform duration-300" />
             </button>
           </div>
         </div>
