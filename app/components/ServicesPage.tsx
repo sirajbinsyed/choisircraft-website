@@ -1,42 +1,90 @@
 "use client"
 
-import { Code, Cog, ShoppingCart, Star, ArrowRight, Check, Zap, Shield, TrendingUp } from "lucide-react"
+import { Code, Cog, ShoppingCart, Star, ArrowRight, Check, Zap, Shield, TrendingUp, Layout, Smartphone, Database } from "lucide-react"
+import { useState } from "react"
+
 
 export default function ServicesPage() {
-  const services = [
+const [activeTab, setActiveTab] = useState(0)
+
+ const services = [
     {
-      icon: <Cog className="w-8 h-8" />,
+      id: 0,
+      icon: <Cog className="w-6 h-6" />,
       title: "ERP Systems",
-      description: "Streamline your business operations with custom enterprise solutions",
-      highlights: ["Custom Development", "System Integration", "Real-time Analytics"],
-      color: "from-green-500 to-emerald-600",
-      bgColor: "from-green-50 to-emerald-50"
+      subtitle: "Enterprise Resource Planning",
+      description: "A centralized system to streamline your entire business operation. From inventory tracking to financial reports, we build custom ERPs that fit your exact workflow.",
+      features: [
+        { label: "Custom Workflows", icon: <Layout className="w-4 h-4"/> },
+        { label: "Real-time Analytics", icon: <Database className="w-4 h-4"/> },
+        { label: "HR & Payroll", icon: <Shield className="w-4 h-4"/> },
+        { label: "Supply Chain", icon: <TrendingUp className="w-4 h-4"/> },
+      ],
+      color: "text-emerald-600",
+      bgGradient: "from-emerald-500 to-green-600",
+      lightBg: "bg-emerald-50",
+      border: "border-emerald-200"
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Web & App Development",
-      description: "Build engaging digital experiences that drive business growth",
-      highlights: ["Responsive Design", "Mobile Apps", "Performance Focused"],
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "from-blue-50 to-cyan-50"
+      id: 1,
+      icon: <Code className="w-6 h-6" />,
+      title: "Web & App Dev",
+      subtitle: "Custom Digital Products",
+      description: "We engineer pixel-perfect websites and robust mobile applications. Our focus is on speed, SEO optimization, and creating a seamless user experience across all devices.",
+      features: [
+        { label: "Next.js & React", icon: <Code className="w-4 h-4"/> },
+        { label: "iOS & Android", icon: <Smartphone className="w-4 h-4"/> },
+        { label: "Progressive Web Apps", icon: <Zap className="w-4 h-4"/> },
+        { label: "API Integration", icon: <Database className="w-4 h-4"/> },
+      ],
+      color: "text-blue-600",
+      bgGradient: "from-blue-500 to-indigo-600",
+      lightBg: "bg-blue-50",
+      border: "border-blue-200"
     },
     {
-      icon: <ShoppingCart className="w-8 h-8" />,
-      title: "E-Commerce Solutions",
-      description: "Launch your online store with secure, scalable platforms",
-      highlights: ["Online Stores", "Payment Integration", "Inventory Management"],
-      color: "from-purple-500 to-pink-600",
-      bgColor: "from-purple-50 to-pink-50"
+      id: 2,
+      icon: <ShoppingCart className="w-6 h-6" />,
+      title: "E-Commerce",
+      subtitle: "Scalable Online Stores",
+      description: "Launch a powerful online store designed to convert visitors into customers. We handle everything from secure payment gateways to complex inventory management systems.",
+      features: [
+        { label: "Custom Storefronts", icon: <Layout className="w-4 h-4"/> },
+        { label: "Payment Gateways", icon: <Shield className="w-4 h-4"/> },
+        { label: "Order Management", icon: <ShoppingCart className="w-4 h-4"/> },
+        { label: "Sales Dashboards", icon: <TrendingUp className="w-4 h-4"/> },
+      ],
+      color: "text-purple-600",
+      bgGradient: "from-purple-500 to-violet-600",
+      lightBg: "bg-purple-50",
+      border: "border-purple-200"
     },
     {
-      icon: <Star className="w-8 h-8" />,
-      title: "Digital Excellence",
-      description: "Transform your business with cutting-edge digital solutions",
-      highlights: ["Cloud Migration", "Digital Strategy", "Automation"],
-      color: "from-orange-500 to-amber-600",
-      bgColor: "from-orange-50 to-amber-50"
+      id: 3,
+      icon: <Star className="w-6 h-6" />,
+      title: "Digital Growth",
+      subtitle: "Strategy & Automation",
+      description: "Transform your business with cutting-edge digital strategies. We help you migrate to the cloud, automate repetitive tasks, and analyze data to make better decisions.",
+      features: [
+        { label: "Cloud Migration", icon: <Database className="w-4 h-4"/> },
+        { label: "Process Automation", icon: <Cog className="w-4 h-4"/> },
+        { label: "Digital Branding", icon: <Star className="w-4 h-4"/> },
+        { label: "Growth Strategy", icon: <TrendingUp className="w-4 h-4"/> },
+      ],
+      color: "text-orange-600",
+      bgGradient: "from-orange-500 to-amber-600",
+      lightBg: "bg-orange-50",
+      border: "border-orange-200"
     }
   ]
+
+  const handleStartProject = () => {
+    const message = "Hi Choisir Craft! I would like to discuss a project.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919495257093?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
 
   const process = [
     {
@@ -101,54 +149,95 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid - Simplified */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+           {/* 2. INTERACTIVE SERVICES SPLIT-VIEW */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          
+          {/* LEFT COL: Navigation Menu */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
             {services.map((service, index) => (
-              <div
+              <button
                 key={index}
-                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 border border-gray-200 hover:border-transparent transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                onClick={() => setActiveTab(index)}
+                className={`
+                  group relative p-4 rounded-2xl text-left transition-all duration-300 border-2
+                  ${activeTab === index 
+                    ? `bg-white ${service.border} shadow-lg scale-100` 
+                    : "bg-gray-50 border-transparent hover:bg-white hover:border-gray-200 hover:shadow-md scale-95 opacity-80 hover:opacity-100 hover:scale-100"
+                  }
+                `}
               >
-                {/* Background Gradient on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <div className="flex items-center gap-4">
+                  <div className={`
+                    w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300
+                    ${activeTab === index ? `bg-gradient-to-br ${service.bgGradient} text-white shadow-md` : "bg-white text-gray-400 group-hover:text-gray-600"}
+                  `}>
                     {service.icon}
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                    {service.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="space-y-2 mb-8">
-                    {service.highlights.map((highlight, idx) => (
-                      <div key={idx} className="flex items-center text-gray-700">
-                        <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-3`}></div>
-                        <span className="font-medium">{highlight}</span>
-                      </div>
-                    ))}
+                  <div>
+                    <h3 className={`font-bold text-lg ${activeTab === index ? "text-gray-900" : "text-gray-600"}`}>
+                      {service.title}
+                    </h3>
+                    <p className="text-xs text-gray-400 font-medium">
+                      {service.subtitle}
+                    </p>
                   </div>
-
-                  {/* CTA Button */}
-                  <button className={`group w-full bg-gradient-to-r ${service.color} text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center justify-center`}>
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
+                  {activeTab === index && (
+                    <div className="absolute right-4 text-green-500 animate-pulse">
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
+                  )}
                 </div>
-              </div>
+              </button>
             ))}
           </div>
+
+          {/* RIGHT COL: Detail View */}
+          <div className="lg:col-span-8">
+            <div className="relative h-full bg-white rounded-3xl border border-gray-100 shadow-2xl overflow-hidden p-8 md:p-10 flex flex-col justify-center">
+              
+              {/* Animated Background Blob */}
+              <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${services[activeTab].bgGradient} opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-colors duration-500`}></div>
+              
+              <div className="relative z-10 animate-fade-in">
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold mb-6 ${services[activeTab].lightBg} ${services[activeTab].color}`}>
+                  <Star className="w-4 h-4" fill="currentColor" />
+                  <span>Premium Service</span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {services[activeTab].title}
+                </h2>
+                
+                <p className="text-lg text-gray-600 leading-relaxed mb-10">
+                  {services[activeTab].description}
+                </p>
+
+                {/* Features Grid */}
+                <div className="grid sm:grid-cols-2 gap-4 mb-10">
+                  {services[activeTab].features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-3 p-3 rounded-xl bg-gray-50 border border-gray-100 hover:border-gray-200 transition-colors">
+                      <div className={`p-2 rounded-lg bg-white shadow-sm ${services[activeTab].color}`}>
+                        {feature.icon}
+                      </div>
+                      <span className="font-semibold text-gray-700">{feature.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button className={`
+                  inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white font-bold shadow-lg transition-transform hover:scale-105 active:scale-95
+                  bg-gradient-to-r ${services[activeTab].bgGradient}
+                `}>
+                  Start {services[activeTab].title} Project
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </section>
+      </div>
 
       {/* Process Section - Simplified */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
@@ -211,12 +300,9 @@ export default function ServicesPage() {
             Let's discuss how we can help bring your ideas to life with our expert services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-600 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center">
-              Get Free Consultation
+            <button onClick={handleStartProject} className="bg-white text-green-600 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center">
+              Start Your Project
               <ArrowRight className="w-5 h-5 ml-3" />
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-white/10 hover:scale-105">
-              View Our Work
             </button>
           </div>
         </div>
