@@ -137,7 +137,7 @@ export default function HomePage() {
           {/* Right Content: IMAGE FIRST on Mobile */}
           <div className="relative h-[500px] lg:h-[600px] w-full flex items-center justify-center order-1 lg:order-2">
             <div className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-green-500 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="mt-[-50px] lg:mt-[-120px] relative z-10 h-full flex items-end justify-center">
+            <div className="mt-[-20px] lg:mt-[-120px] relative z-10 h-full flex items-end justify-center">
               <img
                 src="/hero-slider.png"
                 alt="Software Developer"
@@ -180,7 +180,7 @@ export default function HomePage() {
           </div>
 
           {/* Left Content: TEXT SECOND on Mobile */}
-          <div className="space-y-8 z-10 pt-10 lg:pt-0 order-2 lg:order-1">
+          <div className="mt-[-60px] space-y-8 z-10 pt-10 lg:pt-0 order-2 lg:order-1">
             <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
               Future-Ready <br />
               Software <br />
